@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Quiz List{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+            
+        {% csrf_token %}
+        <!-- quiz_app/quiz_list.html -->
+        {% for quiz in quizzes %}
+        <p>{{ quiz.name }} - {{ quiz.desc}} - <a class="btn btn-warning" href="{% url 'delete_quiz' quiz.id %}">Delete</a></p>
+        {% endfor %}
+
+</div>
+
+{% endblock %}

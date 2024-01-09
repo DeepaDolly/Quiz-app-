@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} Delete Quiz {% endblock %}
+
+{% block body %}
+ <!-- quiz_app/delete_quiz_confirm.html -->
+
+<div class="container mt-4">
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete the quiz "{{del_quiz.name }}"?</p>
+    <form action="/delete_quiz/{{del_quiz.id}}/"  method="POST">
+        {% csrf_token %}
+
+        <a class="btn btn-warning" href="{% url 'quiz_list' %}">Cancel</a>
+
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
+</div>
+
+{% endblock %}
